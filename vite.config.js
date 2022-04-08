@@ -19,11 +19,9 @@ export default defineConfig({
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue', '.css'],
   },
   css: {
-    // https://vitejs.dev/config/#css-preprocessoroptions
     preprocessorOptions: {
       sass: {
         additionalData: [
-          // vuetify variable overrides
           '@import "@/assets/scss/_variables.scss"',
           '@import "@/assets/scss/_mixins.scss"',
           '',
@@ -32,6 +30,6 @@ export default defineConfig({
     },
   },
   build: {
-    chunkSizeWarningLimit: 700, // Default is 500
+    chunkSizeWarningLimit: 700,
   },
 });
