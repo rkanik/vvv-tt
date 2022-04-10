@@ -36,6 +36,11 @@ export default Vue.extend({
 		return {
 			items: [
 				{ title: 'Dashboard', icon: 'mdi-view-dashboard', to: '/' },
+				{
+					icon: 'mdi-help-box',
+					title: 'CompositionApi',
+					to: '/composition-api',
+				},
 				{ title: 'About', icon: 'mdi-help-box', to: '/about' },
 			],
 			right: null,

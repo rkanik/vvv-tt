@@ -17,6 +17,11 @@ const router = new VueRouter({
 					component: () => import('@/views/Home.vue'),
 				},
 				{
+					path: 'composition-api',
+					name: 'CompositionApi',
+					component: () => import('@/views/CompositionApi.vue'),
+				},
+				{
 					path: 'about',
 					name: 'About',
 					component: () => import('@/views/About.vue'),

@@ -8,11 +8,14 @@ import './assets/scss/index.scss'
 
 import vuetify from './plugins/vuetify'
 import VuePrototype from './vue-prototype'
+import VueCompositionAPI from '@vue/composition-api'
+
 import { registerComponentsVite } from 'vuelpers'
 
 Vue.config.productionTip = false
 
 Vue.use(VuePrototype)
+Vue.use(VueCompositionAPI)
 
 const boot = async () => {
 	// REGISTER GLOBAL COMPONENTS
