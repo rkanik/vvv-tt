@@ -1,6 +1,7 @@
 import path from 'path';
 import visualizer from 'rollup-plugin-visualizer';
 import eslintPlugin from 'vite-plugin-eslint';
+
 import { defineConfig } from 'vite';
 import { createVuePlugin } from 'vite-plugin-vue2';
 

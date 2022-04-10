@@ -1,8 +1,8 @@
 {
 	"compilerOptions": {
+		"strict": true, 
 		"target": "esnext",
 		"module": "esnext",
-		"strict": true,
 		"jsx": "preserve",
 		"importHelpers": true,
 		"moduleResolution": "node",
@@ -24,6 +24,6 @@
 		"src/**/*.vue",
 		"tests/**/*.ts",
 		"tests/**/*.tsx"
-	],
+, "src/store/modules/auth.store.ts"	],
 	"exclude": ["node_modules"]
 }
