@@ -1,16 +1,24 @@
 import path from 'path';
-import visualizer from 'rollup-plugin-visualizer';
 import eslintPlugin from 'vite-plugin-eslint';
+import visualizer from 'rollup-plugin-visualizer';
+import Components from 'unplugin-vue-components/vite'
 
-import { defineConfig } from 'vite';
+import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import { createVuePlugin } from 'vite-plugin-vue2';
 
 export default defineConfig({
 	plugins: [
+		splitVendorChunkPlugin(),
+		Components({
+			dirs: [
+				'src/components/app',
+				'src/components/base',
+			],
+		}),
 		createVuePlugin(),
 		eslintPlugin(),
 		visualizer({
-			open: true,
+			open: false,
 			filename: 'stats.html',
 			title: 'Rollup Visualizer',
 			template: 'treemap',
@@ -44,6 +52,24 @@ export default defineConfig({
 		},
 	},
 	build: {
-		chunkSizeWarningLimit: 700,
+		chunkSizeWarningLimit: 1024,
+		rollupOptions: {
+			onwarn(warning, warn) {
+				if (warning.code === 'EVAL') return
+				warn(warning)
+			},
+			output: {
+				manualChunks(path) {
+					if (path.includes('node_modules')) {
+						const vendorName = path
+							.replace(/^.*node_modules\//, '')
+							.replace('@', '')
+							.split('/')
+							.shift();
+						return `vendor/${vendorName}`
+					}
+				}
+			}
+		}
 	},
 });

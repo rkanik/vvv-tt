@@ -1,11 +1,11 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { AuthModule, AuthState, UsersModule, UsersState } from './modules'
 
-Vue.use(Vuex)
+export type Modules = {
+	auth: AuthModule
+	users: UsersModule
+}
 
-export default new Vuex.Store({
-	state: {},
-	mutations: {},
-	actions: {},
-	modules: {},
-})
+export type RootState = {
+	auth: AuthState
+	users: UsersState
+}

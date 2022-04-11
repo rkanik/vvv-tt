@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import { createStore } from './store'
 
 import './assets/css/tailwind.css'
 import './assets/scss/index.scss'
@@ -10,20 +10,15 @@ import vuetify from './plugins/vuetify'
 import VuePrototype from './vue-prototype'
 import VueCompositionAPI from '@vue/composition-api'
 
-import { registerComponentsVite } from 'vuelpers'
-
 Vue.config.productionTip = false
 
 Vue.use(VuePrototype)
 Vue.use(VueCompositionAPI)
 
 const boot = async () => {
-	// REGISTER GLOBAL COMPONENTS
-	await registerComponentsVite(
-		Vue,
-		import.meta.glob('./components/app/*.vue'),
-		import.meta.glob('./components/base/*.vue')
-	)
+	const store = await createStore()
+
+	store.dispatch('users/fetchUsers')
 
 	// CREATE VUE INSTANCE
 	const app = new Vue({
