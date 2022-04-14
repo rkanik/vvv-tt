@@ -8,6 +8,7 @@ declare module '@vue/runtime-core' {
     AppSidebar: typeof import('./src/components/app/AppSidebar.vue')['default']
     BaseButton: typeof import('./src/components/base/BaseButton.vue')['default']
     BaseInput: typeof import('./src/components/base/BaseInput.vue')['default']
+    BaseTransition: typeof import('./src/components/base/BaseTransition.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

@@ -1,6 +1,6 @@
 <template>
-	<v-navigation-drawer app permanent>
-		<v-list-item>
+	<v-navigation-drawer app dark permanent color="green">
+		<v-list-item class="h-16">
 			<v-list-item-content>
 				<v-list-item-title class="text-h6">Application</v-list-item-title>
 				<v-list-item-subtitle>subtext</v-list-item-subtitle>
@@ -40,6 +40,16 @@ export default Vue.extend({
 					icon: 'mdi-help-box',
 					title: 'CompositionApi',
 					to: '/composition-api',
+				},
+				{
+					title: 'Intersect',
+					icon: 'mdi-checkbox-multiple-blank-circle',
+					to: '/intersect',
+				},
+				{
+					title: 'FetchAPI',
+					icon: 'mdi-database-import',
+					to: '/fetch',
 				},
 				{ title: 'About', icon: 'mdi-help-box', to: '/about' },
 			],

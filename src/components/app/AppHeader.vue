@@ -1,5 +1,5 @@
 <template>
-	<v-app-bar app dark color="primary">
+	<v-app-bar app flat dark color="green">
 		<v-toolbar-title>App Layout</v-toolbar-title>
 
 		<v-spacer></v-spacer>

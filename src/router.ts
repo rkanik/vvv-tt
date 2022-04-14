@@ -27,6 +27,16 @@ const router = new VueRouter({
 					component: () => import('@/views/CompositionApi.vue'),
 				},
 				{
+					path: 'intersect',
+					name: 'Intersect',
+					component: () => import('@/views/Intersect.vue'),
+				},
+				{
+					path: 'fetch',
+					name: 'FetchAPI',
+					component: () => import('@/views/FetchAPI.vue'),
+				},
+				{
 					path: 'about',
 					name: 'About',
 					// component: views['About.vue'],

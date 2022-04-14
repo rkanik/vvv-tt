@@ -2,11 +2,11 @@
 	<v-app class="AppLayout">
 		<app-header></app-header>
 		<app-sidebar></app-sidebar>
-		<v-main>
+		<v-main class="bg-green-50">
 			<v-container>
-				<v-fade-transition>
+				<base-transition>
 					<router-view></router-view>
-				</v-fade-transition>
+				</base-transition>
 			</v-container>
 		</v-main>
 	</v-app>
@@ -18,9 +18,3 @@ export default Vue.extend({
 	name: 'AppLayout',
 })
 </script>
-
-<style lang="scss" scoped>
-.AppLayout {
-	background-color: red;
-}
-</style>

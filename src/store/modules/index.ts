@@ -10,3 +10,4 @@ export const getModules = async () => {
 
 export * from './auth.store'
 export * from './users.store'
+export * from './todos.store'

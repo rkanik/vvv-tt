@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"strict": true, 
+		"strict": true,
 		"target": "esnext",
 		"module": "esnext",
 		"jsx": "preserve",
@@ -23,7 +23,8 @@
 		"src/**/*.tsx",
 		"src/**/*.vue",
 		"tests/**/*.ts",
-		"tests/**/*.tsx"
-, "src/store/modules/auth.store.ts"	],
+		"tests/**/*.tsx",
+		"src/store/modules/auth.store.ts"
+	],
 	"exclude": ["node_modules"]
 }

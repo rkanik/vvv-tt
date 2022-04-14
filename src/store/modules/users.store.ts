@@ -27,7 +27,7 @@ const getters = createGetters<UsersState, RootState>('token', 'currentUser')
 const mutations = createMutations<UsersState>(SET, UNSHIFT, UPDATE, DELETE)
 
 const actions: ActionTree<UsersState, RootState> = {
-	fetchUsers({ commit, state, rootState }, query: any) {
+	fetchUsers({ state, rootState }) {
 		console.log(state, rootState)
 		console.log(rootState.auth.currentUser)
 	},
