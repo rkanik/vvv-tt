@@ -16,7 +16,7 @@ export default defineConfig({
 			],
 		}),
 		createVuePlugin(),
-		eslintPlugin(),
+		eslintPlugin({ cache: false }),
 		visualizer({
 			open: false,
 			filename: 'stats.html',

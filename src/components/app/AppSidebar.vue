@@ -42,6 +42,11 @@ export default Vue.extend({
 					to: '/composition-api',
 				},
 				{
+					icon: 'mdi-fruit-pineapple',
+					to: '/pinia',
+					title: 'Pinia',
+				},
+				{
 					title: 'Intersect',
 					icon: 'mdi-checkbox-multiple-blank-circle',
 					to: '/intersect',

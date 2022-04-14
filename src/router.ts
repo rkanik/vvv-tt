@@ -27,6 +27,11 @@ const router = new VueRouter({
 					component: () => import('@/views/CompositionApi.vue'),
 				},
 				{
+					path: 'pinia',
+					name: 'Pinia',
+					component: () => import('@/views/Pinia.vue'),
+				},
+				{
 					path: 'intersect',
 					name: 'Intersect',
 					component: () => import('@/views/Intersect.vue'),

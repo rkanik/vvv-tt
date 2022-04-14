@@ -1,3 +1,10 @@
+export type VFormRef = {
+	reset: () => void
+	validate: () => boolean
+}
+
+export type Filter = 'all' | 'finished' | 'unfinished'
+
 export interface ComputedOptions<T> {
 	get?(): T
 	set?(value: T): void
@@ -17,9 +24,10 @@ export type User = {
 
 export type Todo = {
 	id: number
-	userId: number
 	title: string
 	completed: boolean
+	userId?: number
+	description?: string
 }
 
 export enum HttpMethod {
