@@ -1,7 +1,12 @@
 import { JsonApi } from '@/api'
 import { defineStore } from 'pinia'
 import { Filter, Todo } from '@/types'
-import { Pagination, createPaginaion, handleAction } from '@/plugins/vuelpers'
+import {
+	deepUpdate,
+	Pagination,
+	handleAction,
+	createPaginaion,
+} from '@/plugins/vuelpers'
 
 type TodoState = {
 	filter: Filter
@@ -45,15 +50,23 @@ const useTodoStore = defineStore({
 			return handleAction(
 				JsonApi.patch('/todos/' + todo.id, todo),
 				(res: any) => {
-					this.todos.data = this.todos.data.map(todoItem => {
-						if (todoItem.id !== todo.id) return todoItem
-						return {
-							...todoItem,
+					this.todos.data = deepUpdate(
+						this.todos.data,
+						{
+							id: res.id,
 							title: res.title,
 							completed: res.completed,
 							description: res.description,
 						}
-					})
+						// {
+						// 	key: 'id',
+						// 	copy: true,
+						// 	multiple: true,
+						// 	match: (a, b) => {
+						// 		return a.title === b.title
+						// 	},
+						// }
+					)
 				}
 			) as Promise<[boolean, Todo]>
 		},

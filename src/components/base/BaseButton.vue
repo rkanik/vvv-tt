@@ -9,6 +9,7 @@
 		:loading="loading"
 		:depressed="depressed"
 		:disabled="disabled"
+		@click="$emit('click', $event)"
 	>
 		<slot>Base Button</slot>
 	</v-btn>

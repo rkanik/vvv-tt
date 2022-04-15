@@ -42,6 +42,11 @@ const router = new VueRouter({
 					component: () => import('@/views/FetchAPI.vue'),
 				},
 				{
+					path: 'vue-use',
+					name: 'VueUse',
+					component: () => import('@/views/VueUse.vue'),
+				},
+				{
 					path: 'about',
 					name: 'About',
 					// component: views['About.vue'],

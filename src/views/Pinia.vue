@@ -91,7 +91,7 @@
 
 <script lang="ts">
 import { Todo, VFormRef } from '@/types'
-import { useValidator } from '@/mixins/useValidator'
+import { useValidator } from '@/composables/useValidator'
 import { useTodoStore } from '@/store/pinia/useTodoStore'
 import { ref, reactive, defineComponent } from '@vue/composition-api'
 

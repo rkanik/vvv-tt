@@ -17,7 +17,17 @@
 				:to="item.to"
 			>
 				<v-list-item-icon>
-					<v-icon>{{ item.icon }}</v-icon>
+					<v-avatar
+						v-if="item.icon.startsWith('https')"
+						size="24"
+						color="white"
+						class="p-1"
+					>
+						<v-img :src="item.icon" contain></v-img>
+					</v-avatar>
+					<v-icon v-else>
+						{{ item.icon }}
+					</v-icon>
 				</v-list-item-icon>
 
 				<v-list-item-content>
@@ -55,6 +65,11 @@ export default Vue.extend({
 					title: 'FetchAPI',
 					icon: 'mdi-database-import',
 					to: '/fetch',
+				},
+				{
+					title: 'Vue Use',
+					icon: 'https://d33wubrfki0l68.cloudfront.net/2f6479d73bc25170dc532dd42e059166573bf478/61057/favicon.svg',
+					to: '/vue-use',
 				},
 				{ title: 'About', icon: 'mdi-help-box', to: '/about' },
 			],
