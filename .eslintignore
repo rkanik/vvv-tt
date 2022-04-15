@@ -1,6 +1,9 @@
+/.husky
+/.vscode
+/dist
+/public
+/node_modules
+
 index.html
 components.d.ts
-.husky/
-.vscode/
-dist/
-public/
+.eslintrc.js
