@@ -80,6 +80,7 @@
 	],
 	"license": "MIT",
 	"lint-staged": {
+		"*": "prettier -w -u",
 		"**/**.{js,json,vue,ts}": [
 			"eslint --fix --ignore-path .gitignore",
 			"pretty-quick --staged --ignore-path .gitignore"

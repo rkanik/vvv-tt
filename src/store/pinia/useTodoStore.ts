@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 import { Filter, Todo } from '@/types'
 import {
 	deepUpdate,
+	deepDelete,
 	Pagination,
 	handleAction,
 	createPaginaion,
@@ -50,23 +51,12 @@ const useTodoStore = defineStore({
 			return handleAction(
 				JsonApi.patch('/todos/' + todo.id, todo),
 				(res: any) => {
-					this.todos.data = deepUpdate(
-						this.todos.data,
-						{
-							id: res.id,
-							title: res.title,
-							completed: res.completed,
-							description: res.description,
-						}
-						// {
-						// 	key: 'id',
-						// 	copy: true,
-						// 	multiple: true,
-						// 	match: (a, b) => {
-						// 		return a.title === b.title
-						// 	},
-						// }
-					)
+					this.todos.data = deepUpdate(this.todos.data, {
+						id: res.id,
+						title: res.title,
+						completed: res.completed,
+						description: res.description,
+					})
 				}
 			) as Promise<[boolean, Todo]>
 		},
@@ -78,6 +68,12 @@ const useTodoStore = defineStore({
 					description: res.description,
 					completed: false,
 				})
+				this.todos.total += 1
+			}) as Promise<[boolean, Todo]>
+		},
+		deleteTodo(todo: Todo) {
+			return handleAction(JsonApi.delete('/todos/' + todo.id), () => {
+				this.todos.data = deepDelete(this.todos.data, todo)
 				this.todos.total += 1
 			}) as Promise<[boolean, Todo]>
 		},

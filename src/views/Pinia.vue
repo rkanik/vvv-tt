@@ -41,7 +41,7 @@
 			<v-list-item
 				v-for="todo in todoStore.todos.data"
 				:key="todo.id"
-				class="mt-3 bg-white shadow"
+				class="mt-3 bg-white shadow group"
 			>
 				<v-list-item-icon>
 					<v-progress-circular
@@ -71,6 +71,20 @@
 						{{ todo.description }}
 					</v-list-item-subtitle>
 				</v-list-item-content>
+				<v-list-item-action>
+					<v-btn
+						icon
+						color="error"
+						class="transform scale-0 group-hover:scale-100"
+						:loading="isDeleting(todo)"
+						:class="{
+							'scale-100': isDeleting(todo),
+						}"
+						@click="onDeleteTodo(todo)"
+					>
+						<v-icon>mdi-delete</v-icon>
+					</v-btn>
+				</v-list-item-action>
 			</v-list-item>
 		</v-list>
 
@@ -102,6 +116,7 @@ export default defineComponent({
 		const todoStore = useTodoStore()
 		const currentTodo = reactive({
 			isUpdating: false,
+			isDeleting: false,
 			data: { id: 0 } as Partial<Todo>,
 		})
 		const todoForm = reactive({
@@ -142,8 +157,27 @@ export default defineComponent({
 			if (!err) currentTodo.data = { id: 0 }
 		}
 
+		const onDeleteTodo = async (todo: Todo) => {
+			if (
+				!window.confirm(`Are you sure you want to delete "${todo.title}"?`)
+			) {
+				return
+			}
+
+			currentTodo.data = todo
+			currentTodo.isDeleting = true
+			const [err] = await todoStore.deleteTodo(todo)
+			currentTodo.isDeleting = false
+
+			if (!err) currentTodo.data = { id: 0 }
+		}
+
 		const isUpdating = (todo: Todo) => {
 			return todo.id === currentTodo.data.id && currentTodo.isUpdating
+		}
+
+		const isDeleting = (todo: Todo) => {
+			return todo.id === currentTodo.data.id && currentTodo.isDeleting
 		}
 
 		return {
@@ -155,7 +189,9 @@ export default defineComponent({
 			currentTodo,
 			// Methods
 			isUpdating,
+			isDeleting,
 			onCreateTodo,
+			onDeleteTodo,
 			onToggleCompleted,
 		}
 	},
