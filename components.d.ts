@@ -5,12 +5,6 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    AppBar: typeof import('./src/components/app/AppBar.vue')['default']
-    BaseButton: typeof import('./src/components/base/BaseButton.vue')['default']
-    BaseDialog: typeof import('./src/components/base/BaseDialog.vue')['default']
-    BaseFrame: typeof import('./src/components/base/BaseFrame.vue')['default']
-    BaseSlideable: typeof import('./src/components/base/BaseSlideable.vue')['default']
-    BaseSpacer: typeof import('./src/components/base/BaseSpacer.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
