@@ -1,9 +1,0 @@
-/.husky
-/.vscode
-/dist
-/public
-/node_modules
-
-index.html
-components.d.ts
-.eslintrc.js
